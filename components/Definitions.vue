@@ -1,33 +1,52 @@
 <template>
-    <div class="text-sm">
-        <div class="grid grid-cols-12">
-            <span class="part-of-speech col-span-1">verb</span>
-            <span class="line col-span-11 w-full h-px bg-slate-200 mt-3"></span>
-        </div>
-        <div class="my-8">
-            <div class="text-slate-500 text-base">Meaning</div>
-
-            <div>
-                <ul>
-                    <li class="my-3">Some word definiton</li>
-                </ul>
+    <div v-for="word in data">
+        <div v-for="word in word.meanings">
+            <div class="flex">
+                <span class="part-of-speech">{{ word.partOfSpeech }}</span>
+                <span class="line grow h-px bg-slate-200 mt-3 ml-3"></span>
             </div>
+            <div class="mt-6 mb-10">
+                <div class="text-slate-500 text-base">Meaning</div>
 
-            <div>
-                Synonyms: <span class="text-purple-600">sjsj</span>
+                <div>
+                    <div v-for="definition in word.definitions">
+                    <li class="my-3 ml-7">{{ definition.definition }}</li>
+                    <p class="text-slate-500 ms-10" v-if="definition.example">"{{ definition.example }}"</p>
+                </div>
+
+                <div class="flex-wrap flex" v-if="word.synonyms[0]">
+                    Synonyms: <span class="text-purple-600 mx-1" v-for="synonym in word.synonyms">{{ synonym }}</span>
+                </div>
+
+                <div class="flex-wrap flex mt-4" v-if="word.antonyms[0]">
+                    Opposite: <span class="text-purple-600 mx-1" v-for="antonym in word.antonyms">{{ antonym }}</span>
+                </div>
+
+                </div>
             </div>
         </div>
+    
+    </div>
 
-        <div class="border-t pt-4">
-            Source <span class="pl-6">souce</span>
-        </div>
+    <div class="border-t pb-14" v-if="data[0].sourceUrls[0]">
+        Source: <span class="pl-6 text-blue-600">
+            <a :href="data[0].sourceUrls[0]" >{{ data[0].sourceUrls[0] }}</a>
+        </span>
     </div>
 </template>
-
+ 
 <script setup>
+const props = defineProps(['data'])
+let { data } = props
 
 </script>
 
 <style scoped>
+.part-of-speech{
+    font-family: 'Lobster Two', cursive;
+}
 
+.a{
+    margin-bottom: 10px;
+}
 </style>
