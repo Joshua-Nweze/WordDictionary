@@ -14,7 +14,6 @@
 const props = defineProps(['data', 'word'])
 let { data, word } = props
 
-console.log(data[0])
 </script>
 
 <style scoped>
