@@ -12,7 +12,7 @@
 
         <Transition>
             <div v-if="error">
-                error msg
+                <Error />
             </div>
         </Transition>
     </div>
@@ -34,9 +34,6 @@ if (api.status == 200) {
 }
 
 // {title: 'No Definitions Found', message: "Sorry pal, we couldn't find definitions for the word you were looking for.", resolution: 'You can try the search again at later time or head to the web instead.'}
-
-
-
 
 </script>
 
