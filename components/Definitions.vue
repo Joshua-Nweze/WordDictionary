@@ -11,7 +11,13 @@
                 <div>
                     <div v-for="definition in word.definitions">
                     <li class="my-3 ml-7">{{ definition.definition }}</li>
-                    <p class="text-slate-500 ms-10" v-if="definition.example">"{{ definition.example }}"</p>
+                    <p
+                     class="text-slate-500 ms-10"
+                     :class="(darkMode) ? 'dark-mode' : ''"
+                     v-if="definition.example"
+                     >
+                     "{{ definition.example }}"
+                    </p>
                 </div>
 
                 <div class="flex-wrap flex" v-if="word.synonyms[0]">
@@ -28,15 +34,15 @@
     
     </div>
 
-    <div class="border-t pb-14" v-if="data[0].sourceUrls[0]">
+    <div class="border-t pb-14 flex-wrap flex" v-if="data[0].sourceUrls[0]">
         Source: <span class="pl-6 text-blue-600">
-            <a :href="data[0].sourceUrls[0]" >{{ data[0].sourceUrls[0] }}</a>
+            <a :href="data[0].sourceUrls[0]" target="_blank">{{ data[0].sourceUrls[0] }}</a>
         </span>
     </div>
 </template>
  
 <script setup>
-const props = defineProps(['data'])
+const props = defineProps(['data', 'darkMode'])
 let { data } = props
 
 </script>
@@ -48,5 +54,8 @@ let { data } = props
 
 .a{
     margin-bottom: 10px;
+}
+.dark-mode{
+    color: #00bbff;
 }
 </style>

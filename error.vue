@@ -9,7 +9,7 @@
 
             <NuxtLink to="/" class="mt-8">
                 <span class="rounded-md bg-purple-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm">
-                    Go back home
+                    <span aria-hidden="true">&larr;</span> Go back home
                 </span>
             </NuxtLink>
         </main>

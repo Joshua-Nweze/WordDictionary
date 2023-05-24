@@ -4,6 +4,7 @@
             <span class="sr-only">Search</span>
             <input
              class="rounded-xl py-2 pr-9 pl-3 w-full bg-slate-100 focus:outline-none" 
+             :class="(darkMode) ? 'dark-mode' : ''"
              placeholder="Search for anything..." 
              type="text" 
              name="search"
@@ -23,6 +24,7 @@
 
 <script setup>
 const emit = defineEmits(['getData', 'getWord'])
+const props = defineProps(['darkMode'])
 
 let word = ref(null)
 
@@ -35,5 +37,7 @@ async function getData(){
 </script>
 
 <style  scoped>
-
+.dark-mode{
+    background: #4d5b60;
+}
 </style>

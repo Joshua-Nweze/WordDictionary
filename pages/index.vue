@@ -1,37 +1,9 @@
 <template>
     <div class="container mx-auto lg:w-3/6">
-      <!-- <Header />
-      <Search
-       @getData="getData"
-       @getWord="getWord" -->
-  
-      <!-- <Transition>
-        <div v-if="wordData">
-          <Word
-           :data="wordData"
-           :word="word"
-          />
-          <Definitions :data="wordData"/>
-        </div>
-      </Transition> -->
     </div>
   </template>
   
   <script setup>
-  
-  let wordData = ref(null)
-  let word = ref(null)
-  
-  function getData(data){
-    wordData.value = data
-    console.log(wordData.value)
-  }
-  
-  function getWord(data) {
-    word.value = data
-    // console.log(word.value)
-  }
-  
   
   </script>
   
