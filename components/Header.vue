@@ -5,7 +5,7 @@
         <div class="basis-2/3 flex justify-end text-lg">
             <div class="px-3 select-container">
                 <div class="dropdown rounded-md">
-                    <button class="" :class="(darkMode) ? 'dropbtn-dark' : 'dropbtn'">{{ font }}</button>
+                    <button class="" :class="(darkMode) ? 'dropbtn-dark' : 'dropbtn'">{{ font }} <i class="bi bi-chevron-down text-purple-600 ml-2"></i></button>
                     <div class="dropdown-content" :class="(darkMode) ? 'dropdown-dark' : 'dropdown-light'">
                         <span @click="setFont('font-sans')">Sans-serif</span>
                         <span @click="setFont('font-serif')">Serif</span>
