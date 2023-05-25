@@ -1,6 +1,6 @@
 <template>
     <div>
-        <main class="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
+        <main class="grid min-h-full place-items-center px-6 py-24 sm:py-32 lg:px-8">
             <div class="text-center">
                 <p class="text-4xl font-semibold text-purple-600">{{ error.statusCode }}</p>
                 <h1 class="mt-4 text-lg font-bold tracking-tight text-gray-900 sm:text-2xl">Oppsie</h1>

@@ -4,11 +4,10 @@
 
         <div class="basis-2/3 flex justify-end text-lg">
             <div class="px-3 select-container">
-                <select class="select rounded-md" :class="(darkMode) ? 'dark-mode' : ''">
-                    <option value="font">Serif</option>
-                    <option value="font">Font</option>
-                    <option value="font">font</option>
-                    <option value="font">font</option>
+                <select class="select rounded-md" :class="(darkMode) ? 'dark-mode' : ''" @click="setFont" id="select">
+                    <option value="font-sans">Sans-serif</option>
+                    <option value="font-serif">Serif</option>
+                    <option value="font-mono">Monospace</option>
                 </select>
             </div>
 
@@ -31,16 +30,17 @@
 </template>
 
 <script setup>
-const props = defineProps([ 'darkMode' ])
-
-let input = ref(null)
-console.log(input);
+defineProps([ 'darkMode' ])
+let emit = defineEmits([ 'setFont' ])
 
 let isDark = ref('sun')
 
-// if(props.darkMode){
-//     isDark.value = sun
-// }
+function setFont () {
+    let selectElement = document.getElementById("select");
+    let selectedValue = selectElement.value;
+
+    emit('setFont', selectedValue)
+}
 </script>
 
 <style scoped>
