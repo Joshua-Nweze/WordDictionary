@@ -38,7 +38,7 @@ let isDark = ref('sun')
 function setFont () {
     let selectElement = document.getElementById("select");
     let selectedValue = selectElement.value;
-
+    console.log(selectedValue);
     emit('setFont', selectedValue)
 }
 </script>

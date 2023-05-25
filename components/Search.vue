@@ -28,7 +28,7 @@ const props = defineProps(['darkMode'])
 
 let word = ref(null)
 
-async function getData(){
+function getData(){
     if (word.value) {
         useRouter().push(word.value)
     }

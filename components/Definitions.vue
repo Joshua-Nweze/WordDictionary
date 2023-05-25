@@ -34,7 +34,7 @@
     
     </div>
 
-    <div class="border-t pb-14 flex-wrap flex" v-if="data[0].sourceUrls[0]">
+    <div class="border-t pb-14 flex-wrap break-all flex" v-if="data[0].sourceUrls[0]">
         Source: <span class="pl-6 text-blue-600">
             <a :href="data[0].sourceUrls[0]" target="_blank">{{ data[0].sourceUrls[0] }}</a>
         </span>
