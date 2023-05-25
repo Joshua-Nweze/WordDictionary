@@ -4,11 +4,16 @@
 
         <div class="basis-2/3 flex justify-end text-lg">
             <div class="px-3 select-container">
-                <select class="select rounded-md" :class="(darkMode) ? 'dark-mode' : ''" @click="setFont" id="select">
-                    <option value="font-sans">Sans-serif</option>
-                    <option value="font-serif">Serif</option>
-                    <option value="font-mono">Monospace</option>
-                </select>
+                <div class="dropdown rounded-md">
+                    <button class="" :class="(darkMode) ? 'dropbtn-dark' : 'dropbtn'">{{ font }}</button>
+                    <div class="dropdown-content" :class="(darkMode) ? 'dropdown-dark' : 'dropdown-light'">
+                        <span @click="setFont('font-sans')">Sans-serif</span>
+                        <span @click="setFont('font-serif')">Serif</span>
+                        <span @click="setFont('font-mono')">Monospace</span>
+                    </div>
+                </div>
+
+                
             </div>
 
             <div class="mt-[-25px]">
@@ -34,23 +39,75 @@ defineProps([ 'darkMode' ])
 let emit = defineEmits([ 'setFont' ])
 
 let isDark = ref('sun')
+let font = ref('Sans-serif')
 
-function setFont () {
-    let selectElement = document.getElementById("select");
-    let selectedValue = selectElement.value;
-    console.log(selectedValue);
-    emit('setFont', selectedValue)
+let fonts = reactive({
+    "font-sans": "San-serif",
+    "font-serif": "Serif",
+    "font-mono": "Monospace"
+})
+
+function setFont (fontFamily) {
+    emit('setFont', fontFamily)
+
+    for (const key in fonts) {
+        if (Object.hasOwn(fonts, key)) {
+             if (key == fontFamily) {
+                font.value = fonts[key]
+            }
+         }
+    }
 }
 </script>
 
 <style scoped>
-.select{
-    width:80px;
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
 
-option{
-    display: block;
-    padding: 7px;
+.dropbtn {
+  color: #333;
+  border: none;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-dark, .dropbtn-dark{
+    background-color: #22282a;
+    color: #f9f9f9;
+}
+
+.dropdown-light{
+    background-color: #f9f9f9;
+}
+
+.dropdown-dark span:hover{
+  background-color: rgb(92, 92, 92);
+  cursor: pointer;
+}
+
+.dropdown-content span {
+  padding: 5px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-light span:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 .select-container{

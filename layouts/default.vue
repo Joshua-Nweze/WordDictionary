@@ -1,6 +1,6 @@
 <template>
   <div :class="(darkMode == true) ? 'dark-mode' : 'light-mode', font" class="body">
-    <div class="mx-auto lg:w-4/6 md:w-5/6 lg:text-base text-lg p-5">
+    <div class="mx-auto lg:w-4/6 md:w-5/6 text-base p-5">
       <Header
        @toggleMode="darkMode =! darkMode"
        :darkMode="darkMode"
@@ -21,7 +21,6 @@ let font = ref()
 
 function setFont(fontValue) {
   font.value = fontValue
-  console.log(font.value);
 }
 
 </script>

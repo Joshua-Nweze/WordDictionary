@@ -14,9 +14,9 @@
             <span 
              class="absolute inset-y-0 right-0 flex items-center px-4 text-sm cursor-pointer"
              :to="`/${word}`"
-            @click="getData" 
+             @click="getData" 
             >
-                <i class="bi bi-search"></i>
+                <i class="bi bi-search text-purple-600"></i>
             </span>
         </label>
     </div>
